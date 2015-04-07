@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GoogleMapAssistantClass</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="GOOGLE_API_KEY">AIzaSyDOVcNkB4GJ2Q2ot1JarAEzwotdatYSEpg</string>
+    <string name="BROWSER_GOOGLE_API_KEY">AIzaSyC3Q9dFLwN7YZEG73e82BE1brQ0BXzb6d8</string>
+</resources>
