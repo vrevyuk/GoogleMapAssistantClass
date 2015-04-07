@@ -138,7 +138,7 @@ public class GoogleMapHelper {
                 context.startActivity(intent);
             }
         } else {
-            Log.d("XXX", "Location manager is not found.");
+            callback.state("Location manager is not found.");
         }
         return curr_pos;
     }
@@ -155,7 +155,6 @@ public class GoogleMapHelper {
         params.add("region","UA");
         params.add("language", "UA");
         params.setContentEncoding("UTF-8");
-        Log.d("XXX", GEOCODING_API_URL+"?"+params.toString());
         googleRequest(2, GEOCODING_API_URL, params);
     }
 
@@ -374,8 +373,6 @@ public class GoogleMapHelper {
      */
     private void drawOnMap() {
         if(routeResponse != null) {
-            //Log.d("XXX", routeResponse.status);
-            //Log.d("XXX", "size:"+routeResponse.routes.length);
             googleMap.clear();
             for (Routes route:routeResponse.routes) {
 
@@ -471,7 +468,6 @@ public class GoogleMapHelper {
         @Override
         public void onSuccess(int i, Header[] headers, byte[] bytes) {
             String response = new String(bytes);
-            //Log.d("XXX", "SUCCES I: " + i + " body: " + response);
             switch (requestId) {
                 case 1:
                     try {
@@ -486,7 +482,6 @@ public class GoogleMapHelper {
                     try {
                         geocodingResponse = gson.fromJson(response, GeocodingResponse.class);
                         callback.state("geocoding_"+geocodingResponse.status);
-                        Log.d("XXX", "size: " + geocodingResponse.results.length + " " + geocodingResponse.results[0].formatted_address);
                     } catch (JsonSyntaxException e) {
                         e.printStackTrace();
                     }
